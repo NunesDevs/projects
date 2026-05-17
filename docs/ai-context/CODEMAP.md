@@ -1,0 +1,137 @@
+# Mapa do projeto
+
+<!-- AUTO-GENERATED:START -->
+- `CLAUDE.md`
+- `Jogo da memória\index.html`
+- `monsters\.browserslistrc`
+- `monsters\.editorconfig`
+- `monsters\.gitignore`
+- `monsters\angular.json`
+- `monsters\karma.conf.js`
+- `monsters\package-lock.json`
+- `monsters\package.json`
+- `monsters\README.md`
+- `monsters\tsconfig.app.json`
+- `monsters\tsconfig.json`
+- `monsters\tsconfig.spec.json`
+- `monsters\.vscode\extensions.json`
+- `monsters\.vscode\launch.json`
+- `monsters\.vscode\tasks.json`
+- `monsters\src\favicon.ico`
+- `monsters\src\index.html`
+- `monsters\src\main.ts`
+- `monsters\src\polyfills.ts`
+- `monsters\src\styles.scss`
+- `monsters\src\test.ts`
+- `monsters\ssl\app.server.crt`
+- `monsters\ssl\app.server.key`
+- `monsters\src\app\app-routing.module.ts`
+- `monsters\src\app\app.component.html`
+- `monsters\src\app\app.component.scss`
+- `monsters\src\app\app.component.spec.ts`
+- `monsters\src\app\app.component.ts`
+- `monsters\src\app\app.module.ts`
+- `monsters\src\assets\.gitkeep`
+- `monsters\src\environments\environment.prod.ts`
+- `monsters\src\environments\environment.ts`
+- `monsters\src\assets\data\starwars.data.json`
+- `monsters\src\assets\imagens\8f056b658636e19c2c76eca7a9174f10731daf3b_hq.gif`
+- `monsters\src\assets\imagens\anakin.jpg`
+- `monsters\src\assets\imagens\d7a61190a836bdcfc62bf97af4f4c74b.png`
+- `monsters\src\assets\imagens\Hyperspace-SWPuzzle.webp`
+- `monsters\src\assets\imagens\obi.jpg`
+- `monsters\src\app\monsters-list\monsters-list.component.html`
+- `monsters\src\app\monsters-list\monsters-list.component.scss`
+- `monsters\src\app\monsters-list\monsters-list.component.ts`
+- `Jogo da memória\css\game.css`
+- `Jogo da memória\css\login.css`
+- `Jogo da memória\css\reset.css`
+- `Jogo da memória\img\anel.jpeg`
+- `Jogo da memória\img\aragorn.jpeg`
+- `Jogo da memória\img\background 2.jpeg`
+- `Jogo da memória\img\background.jpeg`
+- `Jogo da memória\img\frodo.jpeg`
+- `Jogo da memória\img\front.jpeg`
+- `Jogo da memória\img\galadriel.jpeg`
+- `Jogo da memória\img\gandalf.jpeg`
+- `Jogo da memória\img\gimli.jpeg`
+- `Jogo da memória\img\legolas.jpeg`
+- `Jogo da memória\img\merry.jpeg`
+- `Jogo da memória\img\minas tirith.jpeg`
+- `Jogo da memória\img\pippin.jpeg`
+- `Jogo da memória\img\sam.jpeg`
+- `Jogo da memória\img\sauron.jpeg`
+- `Jogo da memória\js\game.js`
+- `Jogo da memória\js\login.js`
+- `Jogo da memória\pages\game.html`
+<!-- AUTO-GENERATED:END -->
+
+<!-- JARVIS-AUTO:START -->
+## Estrutura detectada
+- `.env.example`
+- `.gitignore`
+- `AGENTS.md`
+- `CLAUDE.md`
+- `Jogo da memória\index.html`
+- `monsters\.browserslistrc`
+- `monsters\.editorconfig`
+- `monsters\.gitignore`
+- `monsters\angular.json`
+- `monsters\karma.conf.js`
+- `monsters\package-lock.json`
+- `monsters\package.json`
+- `monsters\README.md`
+- `monsters\tsconfig.app.json`
+- `monsters\tsconfig.json`
+- `monsters\tsconfig.spec.json`
+- `monsters\.vscode\extensions.json`
+- `monsters\.vscode\launch.json`
+- `monsters\.vscode\tasks.json`
+- `monsters\src\favicon.ico`
+- `monsters\src\index.html`
+- `monsters\src\main.ts`
+- `monsters\src\polyfills.ts`
+- `monsters\src\styles.scss`
+- `monsters\src\test.ts`
+- `monsters\ssl\app.server.crt`
+- `monsters\ssl\app.server.key`
+- `monsters\src\app\app-routing.module.ts`
+- `monsters\src\app\app.component.html`
+- `monsters\src\app\app.component.scss`
+- `monsters\src\app\app.component.spec.ts`
+- `monsters\src\app\app.component.ts`
+- `monsters\src\app\app.module.ts`
+- `monsters\src\assets\.gitkeep`
+- `monsters\src\environments\environment.prod.ts`
+- `monsters\src\environments\environment.ts`
+- `monsters\src\assets\data\starwars.data.json`
+- `monsters\src\assets\imagens\8f056b658636e19c2c76eca7a9174f10731daf3b_hq.gif`
+- `monsters\src\assets\imagens\anakin.jpg`
+- `monsters\src\assets\imagens\d7a61190a836bdcfc62bf97af4f4c74b.png`
+- `monsters\src\assets\imagens\Hyperspace-SWPuzzle.webp`
+- `monsters\src\assets\imagens\obi.jpg`
+- `monsters\src\app\monsters-list\monsters-list.component.html`
+- `monsters\src\app\monsters-list\monsters-list.component.scss`
+- `monsters\src\app\monsters-list\monsters-list.component.ts`
+- `Jogo da memória\css\game.css`
+- `Jogo da memória\css\login.css`
+- `Jogo da memória\css\reset.css`
+- `Jogo da memória\img\anel.jpeg`
+- `Jogo da memória\img\aragorn.jpeg`
+- `Jogo da memória\img\background 2.jpeg`
+- `Jogo da memória\img\background.jpeg`
+- `Jogo da memória\img\frodo.jpeg`
+- `Jogo da memória\img\front.jpeg`
+- `Jogo da memória\img\galadriel.jpeg`
+- `Jogo da memória\img\gandalf.jpeg`
+- `Jogo da memória\img\gimli.jpeg`
+- `Jogo da memória\img\legolas.jpeg`
+- `Jogo da memória\img\merry.jpeg`
+- `Jogo da memória\img\minas tirith.jpeg`
+- `Jogo da memória\img\pippin.jpeg`
+- `Jogo da memória\img\sam.jpeg`
+- `Jogo da memória\img\sauron.jpeg`
+- `Jogo da memória\js\game.js`
+- `Jogo da memória\js\login.js`
+- `Jogo da memória\pages\game.html`
+<!-- JARVIS-AUTO:END -->
