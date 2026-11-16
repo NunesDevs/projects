@@ -1,43 +1,7 @@
 # Segurança
 
-- CLAUDE.md contém termo sensível: secret
-- monsters\package-lock.json contém termo sensível: token
-- docs\ai-context\LAST_ANALYSIS.md contém termo sensível: token
-- docs\ai-context\PROJECT.md contém termo sensível: secret
-- docs\ai-context\PROMPTS.md contém termo sensível: secret
-- docs\ai-context\SECURITY.md contém termo sensível: secret
+Não há segredos necessários à aplicação. Não adicionar chaves TLS, .env, dados pessoais, imagens remotas não revisadas ou mapas de código ao artefato.
 
-## Checklist
-- Verificar secrets.
-- Verificar autenticação.
-- Verificar autorização.
-- Verificar IDOR.
-- Verificar XSS.
-- Verificar SQL Injection.
-- Verificar CSRF.
-- Verificar rate limit.
-- Verificar uploads.
-- Verificar logs.
+Nome do jogador usa textContent, com normalização e limite de comprimento. O motor controla transições independentemente de cliques/atributos do DOM. O preview restringe caminhos reais a dist/site e devolve erros reais.
 
-<!-- AUTO-GENERATED:START -->
-## Achados automáticos
-- `CLAUDE.md` contém termo sensível: **secret**
-- `monsters\package-lock.json` contém termo sensível: **token**
-
-## Checklist
-- Verificar secrets.
-- Verificar autenticação e autorização.
-- Verificar IDOR, XSS, SQL Injection e CSRF quando aplicável.
-- Verificar uploads, logs e rate limit.
-<!-- AUTO-GENERATED:END -->
-
-<!-- JARVIS-AUTO:START -->
-## Alertas automáticos
-- `CLAUDE.md` contém termo sensível: secret
-- `monsters\package-lock.json` contém termo sensível: token
-
-## Regras obrigatórias
-- Nunca commitar `.env`.
-- Verificar secrets antes de commit.
-- Verificar autenticação, autorização, uploads e logs quando aplicável.
-<!-- JARVIS-AUTO:END -->
+A chave TLS antiga continua no histórico Git: substitua-a se tiver sido reutilizada. Não reescrever o histórico sem autorização específica. O build distribui somente arquivos explícitos e código compilado.

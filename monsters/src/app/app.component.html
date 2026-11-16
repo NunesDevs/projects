@@ -1,2 +1,13 @@
-<h1>This is STAR WARS</h1> 
-<app-monsters-list></app-monsters-list>
+<main class="container">
+<header><p class="eyebrow">Estudos interativos</p><h1>Catálogo de personagens</h1><p class="description">Personagens fictícios e atributos de estudo. Todos os dados ficam disponíveis localmente.</p></header>
+<nav aria-label="Outros estudos"><a class="button" href="../memory/">Memória</a></nav>
+<section class="filters" aria-label="Filtros do catálogo">
+<div class="field"><label for="query">Buscar</label><input id="query" #search type="search" maxlength="100" placeholder="Buscar nome ou título" [value]="query()" (input)="query.set(search.value)"></div>
+<div class="field"><label for="role">Grupo</label><select id="role" #group [value]="role()" (change)="role.set(group.value)"><option value="all">Todos</option><option value="jedi">Jedi</option><option value="pilot">Pilotos</option></select></div>
+<div class="field"><label for="sort">Ordenar por</label><select id="sort" #order [value]="sort()" (change)="sort.set(order.value)"><option value="name">Nome (A–Z)</option><option value="attributes">Mais atributos</option></select></div>
+</section>
+<p id="result-count" class="small" role="status" aria-live="polite">{{visible().length}} personagens · Escala dos atributos: 0 a 200</p>
+@if(visible().length){<app-monsters-list [characters]="visible()"/>}
+@else{<section class="empty" aria-labelledby="empty-title"><h2 id="empty-title">Nenhum personagem encontrado</h2><p class="description">Experimente outro nome ou limpe os filtros.</p><button type="button" (click)="reset()">Limpar filtros</button></section>}
+<p class="small">Os números são parte de um exercício de interface e não são estatísticas oficiais.</p>
+</main>

@@ -1,30 +1,7 @@
-# Deploy
+# Distribuição
 
-Documentar:
-- Variáveis de ambiente
-- Banco de dados
-- Docker
-- Build
-- Migrations
-- VPS
-- Nginx
-- SSL
-- Backup
+Branch padrão: master. Candidato Pages: https://nunesdevs.github.io/projects/ .
 
-<!-- AUTO-GENERATED:START -->
-## Scripts detectados
-Nenhum script detectado.
+Executar os gates do README. Publicar apenas dist/site, nunca a raiz, fontes históricas ou diretório ssl. O workflow manual Pages depende dos gates e requer configuração do repositório para GitHub Actions. A política do workspace é verificada antes de habilitar esse destino.
 
-## Regra
-- Nunca fazer deploy sem autorização explícita.
-<!-- AUTO-GENERATED:END -->
-
-<!-- JARVIS-AUTO:START -->
-## Deploy
-- Deploy automático proibido.
-- Validar variáveis de ambiente.
-- Rodar build/test antes de qualquer publicação.
-
-## Scripts relacionados
-- Nenhum script detectado.
-<!-- JARVIS-AUTO:END -->
+O catálogo usa base relativa; as duas interfaces navegam dentro da mesma subpasta. O preview mantém redirects de diretório e 404 reais para validar esse contrato. Evidência de publicação só é válida após resposta HTTPS e fluxo real no destino.

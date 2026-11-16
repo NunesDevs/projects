@@ -1,40 +1,9 @@
-# Última análise automática
+# Última revisão
 
-<!-- AUTO-GENERATED:START -->
-Data: 2026-05-17 16:08:09
+2026-11-15: regras separadas do DOM, onze regressões relevantes, migração Angular14→22 com dependências fixadas, Figma aplicado, teclado/toque e estados de pausa/erro/vazio. Substituídas fotos externas por monogramas e desenhos próprios. Chave TLS retirada do índice preservando a cópia local ignorada.
 
-## Git
-- Remote: https://github.com/NunesDevs/projects
-- Branch: master
-- Status: ?? CLAUDE.md
-?? docs/
+Próximo gate: instalação verificada, tipagem, build e Playwright nos oito viewports. Registrar os resultados reais e SHA antes de publicar. Não declarar integração externa ou cobertura de funcionalidades não exercitadas.
 
-## Stack
-- Stack não identificada
+## Interrupção para transferência
 
-## Pendências
-- `CLAUDE.md` contém texto provisório ou pendência: **teste**
-- `Jogo da memória\index.html` contém texto provisório ou pendência: **placeholder**
-- `monsters\src\test.ts` contém texto provisório ou pendência: **teste**
-
-## Segurança
-- `CLAUDE.md` contém termo sensível: **secret**
-- `monsters\package-lock.json` contém termo sensível: **token**
-<!-- AUTO-GENERATED:END -->
-
-<!-- JARVIS-AUTO:START -->
-Data: 2026-05-17 16:45:20
-
-## Git
-- Status: `?? AGENTS.md
-?? CLAUDE.md
-?? docs/`
-- Ahead/behind: `0	0`
-
-## Stack
-- Stack não identificada
-
-## Segurança
-- `CLAUDE.md` contém termo sensível: secret
-- `monsters\package-lock.json` contém termo sensível: token
-<!-- JARVIS-AUTO:END -->
+2026-11-15: proprietário pediu parar builds/testes/features e continuar no outro PC. Estado WIP preservado na branch de trabalho, sem integrar default/deploy. Ler HANDOFF.md para gates reais, pendências e dados fora do Git.

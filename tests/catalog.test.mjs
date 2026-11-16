@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {validateCatalog,viewCatalog,attributeTotal} from '../monsters/src/app/catalog.ts';
+const raw=JSON.parse(fs.readFileSync(new URL('../monsters/src/assets/data/starwars.data.json',import.meta.url),'utf8'));
+const data=validateCatalog(raw);
+test('local catalogue validates and zero attributes remain zero',()=>{assert.equal(data.length,4);assert.equal(data.find(x=>x.id==='anakin').stats.intelligence,0);assert.ok(Object.isFrozen(data));assert.ok(Object.isFrozen(data[0].stats));});
+test('search is case/accent insensitive and combines with role',()=>{assert.equal(viewCatalog(data,{query:'MESTRE JÉDI'})[0].id,'obi-wan');assert.equal(viewCatalog(data,{query:'Skywalker',role:'jedi'}).length,2);assert.equal(viewCatalog(data,{query:'Skywalker',role:'pilot'}).length,0);assert.equal(viewCatalog(data,{query:'zzz'}).length,0);});
+test('sort by attributes uses numeric totals without mutating source',()=>{const before=data.map(c=>c.id);const result=viewCatalog(data,{sort:'attributes'});assert.equal(result[0].id,'obi-wan');assert.equal(attributeTotal(result[0]),920);assert.deepEqual(data.map(c=>c.id),before);assert.equal(viewCatalog(data,{sort:'unsupported',role:'unknown'}).length,4);});
+test('malformed, duplicate and nonfinite attributes are rejected',()=>{for(const stat of[-1,201,NaN,Infinity,'200',null]){const copy=structuredClone(raw);copy[0].stats.strength=stat;assert.throws(()=>validateCatalog(copy),TypeError);}const duplicate=structuredClone(raw);duplicate[1].id=duplicate[0].id;assert.throws(()=>validateCatalog(duplicate),TypeError);assert.throws(()=>validateCatalog([]),TypeError);});

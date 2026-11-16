@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/login.css">
-    
-
-    <script defer src="./js/login.js"></script>
-
-    <title>Memory Game</title>
-</head>
-<body>
-
-    <form class="login_form">
-
-     <div class="login_header">
-        <img src="./img/anel.jpeg" alt="anel">
-        <h1>Memory Game</h1>
-        <h2>The Lord of The Rings</h2>
-     </div>
-       
-     <input type="text" placeholder="Name" class="login_input">
-     <button type="submit" class="login_button"disabled>Play</button>
-    </form>
-
-
-</body>
-</html>
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><link rel="icon" href="data:,"><link rel="stylesheet" href="./css/game.css"><script type="module" src="./js/login.js"></script><title>Jogo da memória — entrada</title></head>
+<body><main class="container entry"><header><p class="eyebrow">Estudos interativos</p><h1>Um par de cada vez.</h1><p class="description">20 cartas, 10 pares. Use um apelido ou jogue como visitante.</p></header>
+<form id="login_form" novalidate><label for="nickname">Apelido</label><input id="nickname" name="nickname" minlength="2" maxlength="32" autocomplete="nickname" placeholder="Como quer ser chamado?" aria-describedby="nickname_help" required><p id="nickname_help" class="small" role="status">De 2 a 32 caracteres. O apelido fica somente nesta sessão do navegador.</p><div class="actions"><button id="play" type="submit" class="primary" disabled>Jogar</button><button id="visitor" type="button">Visitante</button></div></form></main></body></html>

@@ -21,3 +21,10 @@ uploads/
 tmp/
 temp/
 cache/
+
+# Local TLS keys must never be versioned
+monsters/ssl/*.key
+
+# Generated Angular cache and browser evidence
+.angular/
+reports/qa/
