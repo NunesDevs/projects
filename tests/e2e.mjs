@@ -25,7 +25,40 @@ try{
   await page.locator('#restart').tap();assert.equal(await page.locator('#pairs').textContent(),'0/10');await page.getByRole('link',{name:'Catálogo',exact:true}).tap();await page.getByRole('heading',{name:'Catálogo de personagens'}).waitFor();
  }finally{await ctx.close();}});
  await check('Memory: visitor works with blocked storage and root redirects safely',async()=>{const ctx=await context(390,true),page=await ctx.newPage();observe(page,'storage flow');try{await page.goto(preview.origin);await page.waitForURL('**/memory/');await page.locator('#nickname').fill('  ');assert.equal(await page.locator('#play').isDisabled(),true);await page.locator('#visitor').tap();await page.waitForURL('**/memory/pages/game.html');assert.equal(await page.locator('#player').textContent(),'Visitante');await page.locator('#grid .card').first().tap();assert.equal(await page.locator('#grid img').count(),1);}finally{await ctx.close();}});
- await check('Catalogue: actual local data, combined filters, reset, numeric sort and navigation',async()=>{const ctx=await context(1440),page=await ctx.newPage();observe(page,'catalogue flow');try{await page.goto(preview.origin+'/catalogue');await page.waitForURL('**/catalogue/');await page.locator('.character-card').first().waitFor();assert.equal(await page.locator('.character-card').count(),4);await page.locator('#query').fill('Skywalker');assert.equal(await page.locator('.character-card').count(),2);await page.locator('#role').selectOption('pilot');await page.getByRole('heading',{name:'Nenhum personagem encontrado'}).waitFor();await page.getByRole('button',{name:'Limpar filtros'}).click();assert.equal(await page.locator('.character-card').count(),4);await page.locator('#sort').selectOption('attributes');assert.equal(await page.locator('.character-card').first().getAttribute('data-id'),'obi-wan');assert.equal(await page.locator('[data-id=anakin] dd').last().textContent(),'0');await page.getByRole('link',{name:'Memória',exact:true}).click();await page.locator('#nickname').waitFor();}finally{await ctx.close();}});
+ await check('Catalogue: actual local data, combined filters, reset, numeric sort and navigation', async () => {
+  const ctx = await context(1440);
+  const page = await ctx.newPage();
+  observe(page, 'catalogue flow');
+  const query = page.locator('#query');
+  const role = page.locator('#role');
+  const order = page.locator('#sort');
+  const waitForCardCount = (count) => page.waitForFunction(
+   expected => document.querySelectorAll('.character-card').length === expected,
+   count
+  );
+
+  try {
+   await page.goto(preview.origin + '/catalogue');
+   await page.waitForURL('**/catalogue/');
+   await waitForCardCount(4);
+   await query.fill('Skywalker');
+   await waitForCardCount(2);
+   await role.selectOption('pilot');
+   await page.getByRole('heading', { name: 'Nenhum personagem encontrado' }).waitFor();
+   await page.getByRole('button', { name: 'Limpar filtros' }).click();
+   await waitForCardCount(4);
+   assert.equal(await query.inputValue(), '');
+   assert.equal(await role.inputValue(), 'all');
+   assert.equal(await order.inputValue(), 'name');
+   await order.selectOption('attributes');
+   await page.locator('.character-card:first-child[data-id="obi-wan"]').waitFor();
+   assert.equal(await page.locator('[data-id=anakin] dd').last().textContent(), '0');
+   await page.getByRole('link', { name: 'Memória', exact: true }).click();
+   await page.locator('#nickname').waitFor();
+  } finally {
+   await ctx.close();
+  }
+ });
  for(const app of['memory','catalogue'])for(const width of[320,360,390,430,768,1024,1440,1920]){const ctx=await context(width),page=await ctx.newPage();observe(page,app+' '+width);try{if(app==='memory'){await startGame(page);await page.locator('#grid .card').nth(0).click();await page.locator('#grid .card').nth(10).click();}else{await page.goto(preview.origin+'/catalogue/');await page.locator('.character-card').first().waitFor();}await page.evaluate(()=>document.fonts.ready);const layout=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,fonts:[...document.fonts].map(f=>({family:f.family,status:f.status})),minimumTarget:Math.min(...[...document.querySelectorAll('button,input,select,a.button')].filter(e=>e.getClientRects().length).map(e=>e.getBoundingClientRect().height))}));assert.ok(layout.scrollWidth<=width,app+' horizontal overflow '+width);assert.ok(layout.minimumTarget>=44);assert.ok(layout.fonts.every(f=>f.status==='loaded'));report.layouts.push({app,width,...layout});if(width===390||width===1440){const filename='projects-'+app+'-'+(width===390?'mobile':'desktop')+'.png',imagePath=path.join(output,'images',filename);await page.screenshot({path:imagePath,fullPage:true});report.images.push({projectSlug:'projects',kind:'application',imagePath,viewport:{width,height:1100},sourceCommit:null,sourceState:'reviewed-working-tree-pending-commit',captureSHA256:crypto.createHash('sha256').update(await fs.readFile(imagePath)).digest('hex'),sanitized:true,source:page.url(),app,fullPage:true});}console.log('PASS layout '+app+' '+width);}finally{await ctx.close();}}
 }catch(error){report.errors.push({type:'runner',text:error.stack});}
 finally{if(browser)await browser.close();if(preview)await new Promise(resolve=>preview.server.close(resolve));report.finishedAt=new Date().toISOString();report.passed=report.checks.length===3&&report.checks.every(c=>c.passed)&&report.layouts.length===16&&report.images.length===4&&report.errors.length===0;await fs.writeFile(path.join(output,'results.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({passed:report.passed,checks:report.checks.length,layouts:report.layouts.length,images:report.images.length,errors:report.errors}));if(!report.passed)process.exitCode=1;}
